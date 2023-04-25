@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9345f75e780ccd54795c2da4d33d3e9c
+guid: 6c67626752fb03045b208cc1784879a7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,236 +117,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprPWalkBat_strip8_0
+      name: sprEWalkBat_strip8_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 44
+        width: 24
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 8, y: 9}
-        - {x: -3, y: 9}
-        - {x: -8, y: 8}
-        - {x: -10, y: 4}
-        - {x: -10, y: -14}
-        - {x: -6, y: -22}
-        - {x: 7, y: -22}
-        - {x: 9, y: -21}
-        - {x: 10, y: -7}
-        - {x: 10, y: 6}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7f7bdf2432a0ed438f4489d3d5251d4
-      internalID: -1117328326
+      spriteID: 23b6608dfcdb03044abbdeac5cafa7e5
+      internalID: -1749640156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprPWalkBat_strip8_1
+      name: sprEWalkBat_strip8_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 24
         y: 0
-        width: 32
-        height: 44
+        width: 24
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -7, y: 9}
-        - {x: -10, y: 3}
-        - {x: -10, y: -9}
-        - {x: -4, y: -22}
-        - {x: 6, y: -22}
-        - {x: 10, y: -8}
-        - {x: 10, y: 8}
-        - {x: 7, y: 9}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 908e1d32d5c0a1f4fb8ba7a97cf1a37e
-      internalID: 103763340
+      spriteID: d4fb78b51bb1c26408373a8e2beb83a5
+      internalID: 945269930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprPWalkBat_strip8_2
+      name: sprEWalkBat_strip8_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 0
-        width: 32
-        height: 44
+        width: 24
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -1, y: 9}
-        - {x: -7, y: 5}
-        - {x: -11, y: 0}
-        - {x: -11, y: -12}
-        - {x: -8, y: -22}
-        - {x: 6, y: -22}
-        - {x: 11, y: -3}
-        - {x: 11, y: 8}
-        - {x: 7, y: 9}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7954c6ac3872e2341a8f64255c04a707
-      internalID: 1886762832
+      spriteID: a570117955bb6f34aaaa468236ddea55
+      internalID: -2122466402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprPWalkBat_strip8_3
+      name: sprEWalkBat_strip8_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c45a0a3ea191e43befff7bda90b458
+      internalID: 383562490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprEWalkBat_strip8_4
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 32
-        height: 44
+        width: 24
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -7, y: 9}
-        - {x: -10, y: 3}
-        - {x: -10, y: -9}
-        - {x: -4, y: -22}
-        - {x: 6, y: -22}
-        - {x: 10, y: -8}
-        - {x: 10, y: 8}
-        - {x: 7, y: 9}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1200dc8fc72cea448b1241ca23e70bf1
-      internalID: 836462163
+      spriteID: 53b6ac787d118ab4a89cd1cc428e82cb
+      internalID: 393066736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprPWalkBat_strip8_4
+      name: sprEWalkBat_strip8_5
       rect:
         serializedVersion: 2
-        x: 128
+        x: 120
         y: 0
-        width: 32
-        height: 44
+        width: 24
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 8, y: 9}
-        - {x: -3, y: 9}
-        - {x: -8, y: 8}
-        - {x: -10, y: 4}
-        - {x: -10, y: -14}
-        - {x: -6, y: -22}
-        - {x: 7, y: -22}
-        - {x: 9, y: -21}
-        - {x: 10, y: -7}
-        - {x: 10, y: 6}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0f8ddcaaedcc884dab10fc8f05cbacc
-      internalID: 1400732247
+      spriteID: cdf1978ccf57743478f2b29f70924ea5
+      internalID: -1822749012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprPWalkBat_strip8_5
+      name: sprEWalkBat_strip8_6
       rect:
         serializedVersion: 2
-        x: 160
+        x: 144
         y: 0
-        width: 32
-        height: 44
+        width: 24
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -6, y: 9}
-        - {x: -9, y: 6}
-        - {x: -9, y: -13}
-        - {x: -4, y: -22}
-        - {x: 9, y: -22}
-        - {x: 9, y: 4}
-        - {x: 4, y: 9}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8debad4dd5d453c4991fe77fb0ce3e27
-      internalID: -1069439213
+      spriteID: 678bb28f3da606f4dbc1ae4655f08901
+      internalID: 1790557105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprPWalkBat_strip8_6
+      name: sprEWalkBat_strip8_7
       rect:
         serializedVersion: 2
-        x: 192
+        x: 168
         y: 0
-        width: 32
-        height: 44
+        width: 24
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5, y: 9}
-        - {x: -9, y: 8}
-        - {x: -9, y: -6}
-        - {x: -7, y: -15}
-        - {x: 1, y: -22}
-        - {x: 10, y: -22}
-        - {x: 10, y: 4}
-        - {x: 6, y: 9}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 511729d617b50f846916709adb6e1b1c
-      internalID: 1277051843
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprPWalkBat_strip8_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -6, y: 9}
-        - {x: -9, y: 6}
-        - {x: -9, y: -13}
-        - {x: -4, y: -22}
-        - {x: 9, y: -22}
-        - {x: 9, y: 4}
-        - {x: 4, y: 9}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 873284ebcf22bde418630fbe78eb678e
-      internalID: -1893558250
+      spriteID: 8ae1fc0632f9d644489b135c3b3013c8
+      internalID: -1542892644
       vertices: []
       indices: 
       edges: []
@@ -362,14 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sprPWalkBat_strip8_0: -1117328326
-      sprPWalkBat_strip8_1: 103763340
-      sprPWalkBat_strip8_2: 1886762832
-      sprPWalkBat_strip8_3: 836462163
-      sprPWalkBat_strip8_4: 1400732247
-      sprPWalkBat_strip8_5: -1069439213
-      sprPWalkBat_strip8_6: 1277051843
-      sprPWalkBat_strip8_7: -1893558250
+      sprEWalkBat_strip8_0: -1749640156
+      sprEWalkBat_strip8_1: 945269930
+      sprEWalkBat_strip8_2: -2122466402
+      sprEWalkBat_strip8_3: 383562490
+      sprEWalkBat_strip8_4: 393066736
+      sprEWalkBat_strip8_5: -1822749012
+      sprEWalkBat_strip8_6: 1790557105
+      sprEWalkBat_strip8_7: -1542892644
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
