@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
     public Animator animator;
+    // public UnityEvent OnAttackPerformed;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     private bool mouseHit = false;
+
+    public Transform circleOrigin;
+    public float radius;
 
     void Start()
     {
@@ -36,7 +41,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = movementDirection * movementSpeed;
-        mouseHit = false;
+        // mouseHit = false;
         followMouse();
     }
 
@@ -61,4 +66,27 @@ public class PlayerController : MonoBehaviour
     float AngleBetweenPoints(Vector2 a, Vector2 b) {
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg + 180;
     }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.blue;
+        Vector3 position = circleOrigin == null ? Vector3.zero : circleOrigin.position;
+        Gizmos.DrawWireSphere(position, radius);
+    }
+
+    public void DetectColliders() {
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position,radius))
+        {
+            EnemyController enemy;
+            // Debug.Log(collider.name);
+            if(enemy = collider.GetComponent<EnemyController>())
+            {
+                Debug.Log("cos sie stalo");
+                StartCoroutine(enemy.GetHit());
+            }
+        }
+    }
+
+    // public void TriggerAttack() {
+    //     OnAttackPerformed?.Invoke();
+    // }
 }
