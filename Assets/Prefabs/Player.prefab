@@ -66,6 +66,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7164015082376219933}
+  - {fileID: 7777533695713346343}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -203,8 +204,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 8
   animator: {fileID: 7164015083233464727}
-  circleOrigin: {fileID: 7164015082376219933}
-  radius: 1.1
+  CircleAttack: {fileID: 7164015082376219933}
+  RadiusAttack: 1.1
+  CircleWeapon: {fileID: 7777533695713346343}
+  RadiusWeapon: 2
 --- !u!114 &-6776402149542914506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,3 +220,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48fea0ad1dce844d8c5947f2b3066c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7222578995748017764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7777533695713346343}
+  m_Layer: 0
+  m_Name: CircleWeaponDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7777533695713346343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222578995748017764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7164015083233464720}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

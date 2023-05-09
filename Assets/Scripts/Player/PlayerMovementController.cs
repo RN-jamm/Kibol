@@ -11,9 +11,12 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     private bool mouseHit = false;
+    private bool weaponsNearby = false;
 
-    public Transform circleOrigin;
-    public float radius;
+    public Transform CircleAttack;
+    public float RadiusAttack;
+    public Transform CircleWeapon;
+    public float RadiusWeapon;
 
     void Start()
     {
@@ -33,6 +36,9 @@ public class PlayerMovementController : MonoBehaviour
             // animator.SetBool("isMouseHit", false);
             // mouseHit = false;
         }
+
+        DetectWeaponsNearby();
+        PickupWeapon();
 
         animator.SetFloat("Speed", rb.velocity.magnitude);
     }
@@ -69,24 +75,50 @@ public class PlayerMovementController : MonoBehaviour
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.blue;
-        Vector3 position = circleOrigin == null ? Vector3.zero : circleOrigin.position;
-        Gizmos.DrawWireSphere(position, radius);
+        Vector3 position = CircleAttack == null ? Vector3.zero : CircleAttack.position;
+        Gizmos.DrawWireSphere(position, RadiusAttack);
+
+        Gizmos.color = Color.green;
+        Vector3 position2 = CircleWeapon == null ? Vector3.zero : CircleWeapon.position;
+        Gizmos.DrawWireSphere(position2, RadiusWeapon);
     }
 
     public void DetectColliders() {
-        foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position,radius))
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(CircleAttack.position, RadiusAttack))
         {
             EnemyController enemy;
-            // Debug.Log(collider.name);
             if(enemy = collider.GetComponent<EnemyController>())
             {
-                Debug.Log("cos sie stalo");
                 StartCoroutine(enemy.GetHit());
             }
         }
     }
 
-    // public void TriggerAttack() {
-    //     OnAttackPerformed?.Invoke();
-    // }
+    public void DetectWeaponsNearby() {
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(CircleWeapon.position, RadiusWeapon)) {
+            WeaponController weapon;
+            if (weapon = collider.GetComponent<WeaponController>()) {
+                weapon.pickupHighlight();
+                weaponsNearby = true; 
+            } else { 
+                weaponsNearby = false; 
+            }
+        }
+    }
+
+    public void PickupWeapon() {
+        if (weaponsNearby) {
+            if (Input.GetKeyDown("e")) {
+                Debug.Log("clicked e");
+                foreach (Collider2D collider in Physics2D.OverlapCircleAll(CircleWeapon.position, RadiusWeapon)) {
+                    WeaponController weapon;
+                    if (weapon = collider.GetComponent<WeaponController>()) {
+                        GetComponent<PlayerSpriteController>().addPickedUpWeapon(weapon.gameObject.name);
+                        Destroy(weapon.gameObject);
+                        break;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerSpriteController : MonoBehaviour
@@ -7,15 +8,14 @@ public class PlayerSpriteController : MonoBehaviour
     private Animator animator;
     private Dictionary<string, string> weaponsAnimations = new Dictionary<string, string>
         {
-            {"unarmed", "PlayerUnarmed"},
-            {"bat", "PlayerBat"},
+            {"Unarmed", "PlayerUnarmed"},
+            {"Bat", "PlayerBat"},
         };
 
     private RuntimeAnimatorController currentWeaponController;
 
     private List<string> obtainedWeapons = new List<string>{
-        "unarmed",
-        "bat",
+        "Unarmed",
     };
 
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class PlayerSpriteController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for ( int i = 0; i < 2; ++i ) {
+        for ( int i = 0; i < obtainedWeapons.Count(); ++i ) {
             if ( Input.GetKeyDown( "" + (i+1)) ) {
                 Debug.Log(i);
                 Debug.Log(currentWeaponController);
@@ -46,5 +46,11 @@ public class PlayerSpriteController : MonoBehaviour
             animator.runtimeAnimatorController = currentWeaponController;
         }
         // animator.runtimeAnimatorController = currentWeaponController;
+    }
+
+    public void addPickedUpWeapon(string weaponName) {
+        if (!obtainedWeapons.Contains(weaponName)) {
+            obtainedWeapons.Add(weaponName);
+        }
     }
 }
