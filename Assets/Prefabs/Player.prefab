@@ -208,6 +208,7 @@ MonoBehaviour:
   RadiusAttack: 1.1
   CircleWeapon: {fileID: 7777533695713346343}
   RadiusWeapon: 2
+  health: 2
 --- !u!114 &-6776402149542914506
 MonoBehaviour:
   m_ObjectHideFlags: 0

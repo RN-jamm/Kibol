@@ -17,6 +17,7 @@ public class PlayerMovementController : MonoBehaviour
     public float RadiusAttack;
     public Transform CircleWeapon;
     public float RadiusWeapon;
+    public float health;
 
     void Start()
     {
@@ -121,4 +122,25 @@ public class PlayerMovementController : MonoBehaviour
             }
         }
     }
+
+
+
+    public void GetHit() {
+        if (health>0.0){
+            health -=1;
+        }else{
+            Destroy(gameObject);
+            // agent.SetDestination(transform.position);
+            // // movementSpeed = 0.0f;
+            // isDead = true;
+            // animator.SetBool("isDead", true);
+            // animator.Play("EnemyDeadFromBat");
+            // transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 180);
+            // rb.bodyType = RigidbodyType2D.Static;
+            // GetComponent<BoxCollider2D>().enabled = false;
+            // GetComponent<SpriteRenderer>().sortingLayerName = "Ground";
+            // yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length+animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        }
+    }
+
 }

@@ -16,7 +16,9 @@ public class EnemyController : MonoBehaviour
     private float cooldown;
     private float lastHit;
     private bool isDead;
-    private float health;
+    public float health;
+    public float RadiusAttack;
+    public Transform CircleAttack;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +31,6 @@ public class EnemyController : MonoBehaviour
         lastHit = 2f;
         isDead = false;
         rb = GetComponent<Rigidbody2D>();
-        health = 3.0f;
     }
 
     // Update is called once per frame
@@ -66,6 +67,24 @@ public class EnemyController : MonoBehaviour
     private IEnumerator mouseHitAnim() {
         animator.Play("EnemyAttackBat");
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length+animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+    }
+
+    
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.blue;
+        Vector3 position = CircleAttack == null ? Vector3.zero : CircleAttack.position;
+        Gizmos.DrawWireSphere(position, RadiusAttack);
+    }
+
+    public void DetectColliders() {
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(CircleAttack.position, RadiusAttack))
+        {
+            PlayerMovementController player;
+            if(player = collider.GetComponent<PlayerMovementController>())
+            {
+                player.GetHit();
+            }
+        }
     }
 
     public IEnumerator GetHit() {

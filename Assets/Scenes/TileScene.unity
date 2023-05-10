@@ -12809,7 +12809,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 1
-  m_VoxelSize: 0.1666667
+  m_VoxelSize: 0.01
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
   m_NavMeshData: {fileID: 23800000, guid: 7be253321fc58b840a8c98d16500991b, type: 2}
@@ -13171,6 +13171,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1259182749}
+    - target: {fileID: 7615480544616353251, guid: a293c634a72fdb447bd0b6a9a258e67a, type: 3}
+      propertyPath: distanceBetween
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615480544616353256, guid: a293c634a72fdb447bd0b6a9a258e67a, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7615480544616353257, guid: a293c634a72fdb447bd0b6a9a258e67a, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -13186,6 +13194,10 @@ PrefabInstance:
     - target: {fileID: 7615480544616353263, guid: a293c634a72fdb447bd0b6a9a258e67a, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615480544616353263, guid: a293c634a72fdb447bd0b6a9a258e67a, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a293c634a72fdb447bd0b6a9a258e67a, type: 3}
