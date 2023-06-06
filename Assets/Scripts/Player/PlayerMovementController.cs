@@ -19,6 +19,7 @@ public class PlayerMovementController : MonoBehaviour
     public Transform CircleWeapon;
     public float RadiusWeapon;
     public float currentHealth { get; private set; }
+    public GameController gameController;
 
     void Start()
     {
@@ -130,7 +131,8 @@ public class PlayerMovementController : MonoBehaviour
     public void GetHit() {
         currentHealth = Mathf.Clamp(currentHealth - 1, 0, startingHealth);
         if (currentHealth <= 0)
-            Destroy(gameObject);
+            gameController.GameOver();
+            //Destroy(gameObject);
     }
 
 }
