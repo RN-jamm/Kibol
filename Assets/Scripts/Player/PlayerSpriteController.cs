@@ -23,7 +23,6 @@ public class PlayerSpriteController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         currentWeaponController = Resources.Load<RuntimeAnimatorController>("unarmed");
-        // animator.runtimeAnimatorController = currentWeaponController;
     }
 
     // Update is called once per frame
@@ -31,21 +30,13 @@ public class PlayerSpriteController : MonoBehaviour
     {
         for ( int i = 0; i < obtainedWeapons.Count(); ++i ) {
             if ( Input.GetKeyDown( "" + (i+1)) ) {
-                Debug.Log(i);
-                Debug.Log(currentWeaponController);
-                // Debug.Log(animator.runtimeAnimatorController);
                 currentWeaponController = Resources.Load<RuntimeAnimatorController>(weaponsAnimations[obtainedWeapons[i]]);
-                Debug.Log(currentWeaponController);
-                
-                // animator.runtimeAnimatorController = currentWeaponController;
-                // Debug.Log(animator.runtimeAnimatorController);
             }
         }
         if (currentWeaponController != null)
         {
             animator.runtimeAnimatorController = currentWeaponController;
         }
-        // animator.runtimeAnimatorController = currentWeaponController;
     }
 
     public void addPickedUpWeapon(string weaponName) {
