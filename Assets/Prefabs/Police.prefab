@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1435484453659205122}
   - component: {fileID: 4629420930688267752}
+  - component: {fileID: 1501854931}
   - component: {fileID: 5583186303394383096}
   - component: {fileID: 1202277872573775698}
   - component: {fileID: 8812767231509559151}
   - component: {fileID: 638253264836264272}
-  - component: {fileID: 7276347286418107313}
   m_Layer: 0
   m_Name: Police
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741338065508893512}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.41, y: -12.48, z: 5.613138}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -59,6 +59,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1501854931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741338065508893512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f01a8fc9bc1fe84f9dec5989507637f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  animator: {fileID: 4629420930688267752}
+  movementSpeed: 3
+  distanceBetween: 8
+  isDead: 0
+  health: 16
+  RadiusAttack: 1.1
+  CircleAttack: {fileID: 5783692952518684162}
+  damage: 2
 --- !u!212 &5583186303394383096
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -180,26 +201,6 @@ NavMeshAgent:
   m_BaseOffset: 0.1874
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
---- !u!114 &7276347286418107313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741338065508893512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e509c76d0e162ee40bfab046e40b0e9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  animator: {fileID: 4629420930688267752}
-  movementSpeed: 2
-  distanceBetween: 2
-  isDead: 0
-  health: 2
-  RadiusAttack: 1.1
-  CircleAttack: {fileID: 5783692952518684162}
 --- !u!1 &8170933640984896935
 GameObject:
   m_ObjectHideFlags: 0

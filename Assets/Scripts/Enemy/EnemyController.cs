@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     public float health = 8 ;
     public float RadiusAttack;
     public Transform CircleAttack;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +76,7 @@ public class EnemyController : MonoBehaviour
             PlayerMovementController player;
             if(player = collider.GetComponent<PlayerMovementController>())
             {
-                player.GetHit();
+                player.GetHit(damage);
             }
         }
     }

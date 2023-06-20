@@ -142,8 +142,8 @@ public class PlayerMovementController : MonoBehaviour
 
 
 
-    public void GetHit() {
-        currentHealth = Mathf.Clamp(currentHealth - 1, 0, startingHealth);
+    public void GetHit(int damage) {
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
         if (currentHealth <= 0)
             gameController.GameOver();
             //Destroy(gameObject);
@@ -161,7 +161,7 @@ public class PlayerMovementController : MonoBehaviour
             // if (lastBeer > 0 && beersDrunk > beerLimit) {
             if (currentHealth >= startingHealth) {
                 StartCoroutine(puke());
-                this.GetHit();
+                this.GetHit(1);
             } else {
                 currentHealth = Mathf.Clamp(currentHealth + 1, 0, startingHealth);
             }
