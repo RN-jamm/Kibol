@@ -54,6 +54,7 @@ MonoBehaviour:
   animator: {fileID: 7615480544616353260}
   movementSpeed: 4
   distanceBetween: 10
+  isDead: 0
   health: 3
   RadiusAttack: 1.1
   CircleAttack: {fileID: 2486995576493353608}
