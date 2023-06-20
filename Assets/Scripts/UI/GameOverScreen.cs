@@ -11,7 +11,7 @@ public class GameOverScreen : MonoBehaviour
     }
 
     public void RestartButton() {
-        SceneManager.LoadScene("BigMapScene");
         Time.timeScale = 1;
+        SceneManager.LoadScene("BigMapScene");
     }
 }

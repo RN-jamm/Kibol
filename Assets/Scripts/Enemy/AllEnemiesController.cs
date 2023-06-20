@@ -6,6 +6,7 @@ public class AllEnemiesController : MonoBehaviour
 {
     public GameController gameController;
     private List<GameObject> allChildren = new List<GameObject>();
+    bool isVictory = false;
     void Start()
     {
         allChildren = GetAllChildren();
@@ -14,8 +15,9 @@ public class AllEnemiesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (allChildren.Count <= 0 ) {
+        if (allChildren.Count <= 0 && !isVictory) {
             gameController.Victory();
+            isVictory = true;
         }
     }
 

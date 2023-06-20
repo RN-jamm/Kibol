@@ -1,19 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
+    private float startingMovementSpeed;
     [SerializeField] private float startingHealth;
     public Animator animator;
     // public UnityEvent OnAttackPerformed;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
-    private bool mouseHit = false;
+    // private bool mouseHit = false;
     private bool weaponsNearby = false;
     private PlayerSpriteController spriteController;
+    // private float lastBeer = 0.0f;
+    // private float beerCooldown = 10f;
+    // private int beersDrunk = 0;
+    // private int beerLimit = 2;
+    private bool isPuking = false;
 
     public Transform CircleAttack;
     public float RadiusAttack;
@@ -21,41 +29,50 @@ public class PlayerMovementController : MonoBehaviour
     public float RadiusWeapon;
     public float currentHealth { get; private set; }
     public GameController gameController;
+    // public Text textBeerCounter;
+    // public Text textBeerCooldown;
     
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = startingHealth;
-        // target = GetComponent<Transform>();
         spriteController = gameObject.GetComponent<PlayerSpriteController>();
+        startingMovementSpeed = movementSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (!isPuking) {
+            movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        if (Input.GetMouseButtonDown(0)) {
-            // animator.SetBool("isMouseHit", true);
-            mouseHit = true;
-            StartCoroutine(mouseHitAnim());
-            // animator.SetBool("isMouseHit", false);
-            // mouseHit = false;
+            if (Input.GetMouseButtonDown(0)) {
+                StartCoroutine(mouseHitAnim());
+            }
+
+            DetectWeaponsNearby();
+            PickupWeapon();
+
+            animator.SetFloat("Speed", rb.velocity.magnitude);
         }
 
-        DetectWeaponsNearby();
-        PickupWeapon();
-
-        animator.SetFloat("Speed", rb.velocity.magnitude);
+        
+        // if (lastBeer >= 0) {
+        //     lastBeer -= Time.deltaTime;
+        //     textBeerCooldown.text = Math.Round(lastBeer, 1).ToString();
+        // } else {
+        //     beersDrunk = 0;
+        //     textBeerCooldown.text = "0.0";
+        // }
     }
 
-    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
     private void FixedUpdate()
     {
         rb.velocity = movementDirection * movementSpeed;
-        // mouseHit = false;
-        followMouse();
+        if (!isPuking) {
+            followMouse();
+        }
     }
 
     private IEnumerator mouseHitAnim() {
@@ -64,18 +81,13 @@ public class PlayerMovementController : MonoBehaviour
     }
 
     private void followMouse() {
-
-        //Mouse Position in the world. It's important to give it some distance from the camera. 
-        //If the screen point is calculated right from the exact position of the camera, then it will
-        //just return the exact same position as the camera, which is no good.
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
         
-        //Angle between mouse and this object
         float angle = AngleBetweenPoints(transform.position, mouseWorldPosition);
         
-        //Ta daa
         transform.rotation =  Quaternion.Euler (new Vector3(0f,0f,angle));
     }
+
     float AngleBetweenPoints(Vector2 a, Vector2 b) {
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg + 180;
     }
@@ -141,8 +153,34 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("beer"))
         {
+            // beersDrunk++;
+            // lastBeer = beerCooldown;
+
             Destroy(other.gameObject);
-            currentHealth = Mathf.Clamp(currentHealth + 1, 0, startingHealth);
+        
+            // if (lastBeer > 0 && beersDrunk > beerLimit) {
+            if (currentHealth >= startingHealth) {
+                StartCoroutine(puke());
+                this.GetHit();
+            } else {
+                currentHealth = Mathf.Clamp(currentHealth + 1, 0, startingHealth);
+            }
+        
         }
+    }
+
+    private IEnumerator puke() {
+        animator.Play("PlayerPuke");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length+animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+    }
+
+    public void startPuking() {
+        isPuking = true;
+        movementSpeed = 0;
+    }
+
+    public void stopPuking() {
+        isPuking = false;
+        movementSpeed = startingMovementSpeed;
     }
 }
