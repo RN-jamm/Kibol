@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     private float cooldown;
     private float lastHit;
     public bool isDead;
-    public float health;
+    public float health = 8 ;
     public float RadiusAttack;
     public Transform CircleAttack;
 
@@ -87,12 +87,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public IEnumerator GetHit() {
-        if (health>0.1){
-            health -=1;
+    public IEnumerator GetHit(int weaponDamage) {
+        if (health>weaponDamage){
+            health -= weaponDamage;
         }else{
             agent.SetDestination(transform.position);
-            // movementSpeed = 0.0f;
             isDead = true;
             transform.parent.GetComponent<AllEnemiesController>().KillChildren(gameObject);
             animator.SetBool("isDead", true);

@@ -13,6 +13,7 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 movementDirection;
     private bool mouseHit = false;
     private bool weaponsNearby = false;
+    private PlayerSpriteController spriteController;
 
     public Transform CircleAttack;
     public float RadiusAttack;
@@ -20,12 +21,14 @@ public class PlayerMovementController : MonoBehaviour
     public float RadiusWeapon;
     public float currentHealth { get; private set; }
     public GameController gameController;
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = startingHealth;
         // target = GetComponent<Transform>();
+        spriteController = gameObject.GetComponent<PlayerSpriteController>();
     }
 
     // Update is called once per frame
@@ -93,7 +96,7 @@ public class PlayerMovementController : MonoBehaviour
             EnemyController enemy;
             if(enemy = collider.GetComponent<EnemyController>())
             {
-                StartCoroutine(enemy.GetHit());
+                StartCoroutine(enemy.GetHit(spriteController.GetWeaponDamage()));
             }
         }
     }

@@ -10,9 +10,20 @@ public class PlayerSpriteController : MonoBehaviour
         {
             {"Unarmed", "PlayerUnarmed"},
             {"Bat", "PlayerBat"},
+            {"Axe", "PlayerAxe"},
+            {"Pan", "PlayerPan"},
         };
 
     private RuntimeAnimatorController currentWeaponController;
+    private string currentWeapon = "Unarmed";
+    
+    private Dictionary<string, int> weaponsDamage = new Dictionary<string, int> 
+        {
+            {"Unarmed", 1},
+            {"Bat", 2},
+            {"Axe", 4},
+            {"Pan", 10},
+        };
 
     private List<string> obtainedWeapons = new List<string>{
         "Unarmed",
@@ -31,6 +42,7 @@ public class PlayerSpriteController : MonoBehaviour
         for ( int i = 0; i < obtainedWeapons.Count(); ++i ) {
             if ( Input.GetKeyDown( "" + (i+1)) ) {
                 currentWeaponController = Resources.Load<RuntimeAnimatorController>(weaponsAnimations[obtainedWeapons[i]]);
+                currentWeapon = obtainedWeapons[i];
             }
         }
         if (currentWeaponController != null)
@@ -43,5 +55,9 @@ public class PlayerSpriteController : MonoBehaviour
         if (!obtainedWeapons.Contains(weaponName)) {
             obtainedWeapons.Add(weaponName);
         }
+    }
+
+    public int GetWeaponDamage() {
+        return weaponsDamage[currentWeapon];
     }
 }
