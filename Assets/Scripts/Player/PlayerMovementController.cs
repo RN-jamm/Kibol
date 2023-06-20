@@ -112,8 +112,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public void PickupWeapon() {
         if (weaponsNearby) {
-            if (Input.GetKeyDown("e")) {
-                Debug.Log("clicked e");
+            if (Input.GetKeyDown(KeyCode.E)) {
                 foreach (Collider2D collider in Physics2D.OverlapCircleAll(CircleWeapon.position, RadiusWeapon)) {
                     WeaponController weapon;
                     if (weapon = collider.GetComponent<WeaponController>()) {
@@ -135,4 +134,12 @@ public class PlayerMovementController : MonoBehaviour
             //Destroy(gameObject);
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("beer"))
+        {
+            Destroy(other.gameObject);
+            currentHealth = Mathf.Clamp(currentHealth + 1, 0, startingHealth);
+        }
+    }
 }
